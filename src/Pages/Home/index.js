@@ -3,8 +3,7 @@ import Cars from "./Cars";
 
 import cars from "../../data/Cars";
 import "./styles.css";
-
-
+const LENGTH = cars.length;
 
 export default function Home(){
     const [page,setPage] = useState(1);
@@ -22,7 +21,7 @@ export default function Home(){
         <Cars cars={data}/>
         <div className="Pagination">
             <div className="page-view-number">
-                <a>6 from 129</a>
+               {page*6<=LENGTH && <a>{page*6} from {LENGTH}</a>}
             </div>
             <div className="pagination-number">
                 <button onClick={()=>{setPage((page)=>{return page-1})}} style={{visibility : page === 1 && "hidden" }}> {"<"} </button>
