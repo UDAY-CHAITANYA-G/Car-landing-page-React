@@ -1,4 +1,5 @@
 import React from "react";
+import {FiHeart} from "react-icons/fi"
 
 import "./styles.css";
 
@@ -24,11 +25,11 @@ export default function Card({car,...props}){
         </div>
         <div className="car-rent-details">
             <div className="car-rent-money">
-                <h3>{car.rentPrice}</h3>
+                <h3>${car.rentPrice}</h3>
                 <a>/month</a>
             </div>
             <div className="car-rent-now-button">
-                <a>L</a>
+                <FiHeart />
                 <a>Rent now</a>
             </div>
         </div>
