@@ -8,20 +8,30 @@ const LENGTH = cars.length;
 export default function Home(){
     const [page,setPage] = useState(1);
     const [data,setCards] = useState([]);
+    const [search,setSearch] = useState("");
+    const [length,setLength] = useState(LENGTH);
+
+    const changeSearch = (e)=>{
+        setSearch(e.target.value);
+        setPage(1);
+    }
     useEffect(()=>{
         const last = page*6;
-        const data = cars.filter((car)=>{return car.id>last && car.id<last+7});
-        setCards(data); 
-    },[page])
+        console.log(search);
+        let data = search === "" ? cars : cars.filter((car)=>{return car.Name.toLowerCase().includes(search.toLowerCase())});
+        setLength(data.length);
+        data = data.filter((car,index)=>{return index+6>=last && index+6<last+6});   
+        setCards(data);
+    },[page,search])
     return (
     <div>
         <div className="Search-bar">
-            <input type="text" placeholder="Search"></input>           
+            <input type="text" placeholder="Search" value={search} onChange={changeSearch}></input>           
         </div>
         <Cars cars={data}/>
         <div className="Pagination">
             <div className="page-view-number">
-               {page*6<=LENGTH && <a>{page*6} from {LENGTH}</a>}
+               {page*6<=length && <a>{page*6} from {length}</a>}
             </div>
             <div className="pagination-number">
                 <button onClick={()=>{setPage((page)=>{return page-1})}} style={{visibility : page === 1 && "hidden" }}> {"<"} </button>

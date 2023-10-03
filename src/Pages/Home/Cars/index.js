@@ -7,6 +7,6 @@ import "./styles.css";
 export default function Cars({cars, ...props}){
     return (
     <div className="car-cards">
-        {cars.map((car)=>{return <Card car={car}/>})}
+        {cars.map((car,index)=>{return <Card car={car} key={index} />})}
     </div>);
 }

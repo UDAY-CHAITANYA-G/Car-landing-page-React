@@ -3,7 +3,6 @@ import React from "react";
 import "./styles.css";
 
 export default function Card({car,...props}){
-    console.log(car);
     return (
     <div className="Car-box">
         <div className="Car-image-box"></div>
