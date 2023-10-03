@@ -33,7 +33,7 @@ export default function Card({car,...props}){
             <div className="car-specifications">
                 <div className="car1-specifications">
                     <a><FaUsers /> {car.capacity} People</a>
-                    <a><FaChargingStation /> {car.type}</a>
+                    <a><FaChargingStation />  {car.type}</a>
                 </div>
                 <div className="car2-specifications">
                     <a><FaTachometerAlt />  {car.mileage}</a>
