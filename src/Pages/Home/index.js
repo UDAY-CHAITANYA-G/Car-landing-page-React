@@ -1,46 +1,38 @@
-import React from "react";
-import Card from "../../Components/Card";
+import React, { useEffect, useState } from "react";
+import Cars from "./Cars";
+
+import cars from "../../data/Cars";
 import "./styles.css";
 
 
-export default function Home(){
-    return <div>
-        <div className="Search-bar">
-            <input type="text" placeholder="Search"></input>
-            <div class="dropdown">
-                <button class="dropbtn">Relevance</button>
-                <div class="dropdown-content">
-                    <a href="#">Relevance1</a>
-                    <a href="#">Relevance2</a>
-                    <a href="#">Relevance3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">All brands</button>
-                <div class="dropdown-content">
-                    <a href="#">All brands1</a>
-                    <a href="#">All brands2</a>
-                    <a href="#">All brands3</a>
-                </div>
-            </div>
-            
-        </div>
-        <div className="car-cards">
-            <Card />
-        </div>
 
+export default function Home(){
+    const [page,setPage] = useState(1);
+    const [data,setCards] = useState([]);
+    useEffect(()=>{
+        const last = page*6;
+        const data = cars.filter((car)=>{return car.id>last && car.id<last+7});
+        setCards(data); 
+    },[page])
+    return (
+    <div>
+        <div className="Search-bar">
+            <input type="text" placeholder="Search"></input>           
+        </div>
+        <Cars cars={data}/>
         <div className="Pagination">
             <div className="page-view-number">
                 <a>6 from 129</a>
             </div>
             <div className="pagination-number">
-                <a>1</a>
-                <a>2</a>
-                <a>3</a>
-                <a>.</a>
-                <a>10</a>
-                <a>11</a>
+                <button onClick={()=>{setPage((page)=>{return page-1})}} style={{visibility : page === 1 && "hidden" }}> {"<"} </button>
+                <button onClick={()=>{setPage(page)}}>{page}</button>
+                <button onClick={()=>{setPage(page+1)}} style={{ visibility : page+1 >= 11 && "hidden" }}>{page+1}</button>
+                <button onClick={()=>{setPage(page+2)}} style={{ visibility : page+2 >= 11 && "hidden" }}>{page+2}</button>
+                {page < 8 && <button>.</button> }
+                {page < 8 && <button onClick={()=>{setPage(10)}}>10</button>}
+                <button onClick={()=>{setPage((page)=>{return page+1})}} style={{ visibility : page+2 >= 10 && "hidden" }}> {">"} </button>
             </div>
         </div>
-    </div>;
+    </div>);
 }
