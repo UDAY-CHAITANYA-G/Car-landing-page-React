@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cars from "./Cars";
+import Dropdown from "./Dropdown";
 
 import cars from "../../data/Cars";
 import "./styles.css";
@@ -15,18 +16,21 @@ export default function Home(){
         setSearch(e.target.value);
         setPage(1);
     }
+    
     useEffect(()=>{
         const last = page*6;
-        console.log(search);
         let data = search === "" ? cars : cars.filter((car)=>{return car.Name.toLowerCase().includes(search.toLowerCase())});
         setLength(data.length);
         data = data.filter((car,index)=>{return index+6>=last && index+6<last+6});   
         setCards(data);
     },[page,search])
+
+
     return (
     <div>
         <div className="Search-bar">
             <input type="text" placeholder="Search" value={search} onChange={changeSearch}></input>           
+            <Dropdown />
         </div>
         <Cars cars={data}/>
         <div className="Pagination">
