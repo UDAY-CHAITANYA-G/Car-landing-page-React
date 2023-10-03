@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import {FiHeart} from "react-icons/fi"
+import {FaTachometerAlt, FaChargingStation, FaUsers, FaCar} from "react-icons/fa";
 
 import "./styles.css";
 
@@ -31,12 +32,12 @@ export default function Card({car,...props}){
             </div>
             <div className="car-specifications">
                 <div className="car1-specifications">
-                    <a>{car.capacity} People</a>
-                    <a>{car.capacity}</a>
+                    <a><FaUsers /> {car.capacity} People</a>
+                    <a><FaChargingStation /> {car.type}</a>
                 </div>
                 <div className="car2-specifications">
-                    <a>{car.mileage}</a>
-                    <a>{car.mode}</a>
+                    <a><FaTachometerAlt />  {car.mileage}</a>
+                    <a><FaCar /> {car.mode}</a>
                 </div>
             </div>
         </div>
