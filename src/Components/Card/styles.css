@@ -1,0 +1,83 @@
+.Car-box{
+    padding: 0.3rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 25rem;
+    height: 26rem;
+}
+
+.Car-image-box{
+    padding: 0.7rem;
+    border-radius: 1rem;
+    background-color: black;
+    height: 14rem;
+}
+.Car-details{
+    padding: 0.5rem 1rem;
+}
+.Car-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Car-name h3{
+    margin: 0rem;
+}
+
+.Car-name a{
+    border: 1px dotted;
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+    font-weight: 400;
+}
+
+.car1-specifications {
+    padding: 0.5rem 1rem;
+    display: flex; 
+    gap: 7rem;
+    align-items: center;
+}
+.car2-specifications{
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 5rem;
+    align-items: center; 
+}
+
+.car-specifications{
+    border-bottom: 1px black dotted;
+}
+
+.car-rent-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding:  0.5rem 1rem;
+}
+
+.car-rent-money{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.car-rent-money h3{
+    margin: 0;
+}
+.car-rent-now-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.car-rent-now-button a{
+    border-radius: 5px ;
+    background-color: rgb(66, 134, 230);
+    padding: 0.2rem 0.5rem;
+    color: white;
+}
+
+
