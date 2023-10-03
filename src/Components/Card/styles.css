@@ -10,9 +10,14 @@
 .Car-image-box{
     padding: 0.7rem;
     border-radius: 1rem;
-    background-color: black;
     height: 14rem;
 }
+
+.Car-image-box img{
+    width: 100%;
+    height: 100%;
+}
+
 .Car-details{
     padding: 0.5rem 1rem;
 }
